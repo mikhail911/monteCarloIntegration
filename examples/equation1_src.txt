@@ -1,0 +1,25 @@
+\int_{0}^{\pi} e^x cos^2x dx = (1) \\ \\
+\int e^xcos^2xdx \begin{vmatrix}
+u = cos^2x & {u}' = 2cosx(-sinx)dx \\ 
+{v}'=e^xdx & v = e^x 
+\end{vmatrix} = e^xcos^2x + \int e^xsin2xdx = (2) \\
+\int e^xsin2xdx = \begin{vmatrix}
+u = sin2x & {v}' = 2cos2x \\ 
+{u}' = e^xdx  & v = e^x
+\end{vmatrix} = e^xsin2x - 2 \int e^xcos2xdx = (3) \\
+\int e^xcos2xdx = \begin{vmatrix}
+u = cos2x & {v}' = -2sin2xdx \\ 
+{u}'= e^xdx & v  = e^x
+\end{vmatrix} = e^xcos2x + 2 \int e^xsin2xdx \\
+(3) = e^xsin2x - 2e^xcos2x - 4 \int e^xsin2xdx \\
+(2) = e^xcos^2x + e^xsin2x - 2e^xcos2x - 4 \int e^xsin2xdx \\ \\
+where: \\ \\
+\int e^xsin2xdx = e^xsin2x - 2e^xcos2x - 4 \int e^xsinxdx \\
+5 \int e^xsin2xdx = e^xsin2x - 2e^xcos2x \mid :5 \\
+\int e^xsin2xdx = \frac{1}{5}e^xsin2x - \frac{2}{5}e^xcos2x+C \\\\
+therefore: \\\\
+(2) = e^xcos^2x + \frac{1}{5}e^xsin2x - \frac{2}{5}e^xcos2x+C \\
+(1) = \left [ e^xcos^2x + \frac{1}{5}e^xsin2x - \frac{2}{5}e^xcos2x \right ]_{0}^{pi}  
+= \\ e^\pi cos^2 pi + \frac{1}{5}e^\pi sin2pi - \frac{2}{5} e^\pi cos2pi - (e^0cos^20+ \frac{1}{5} e^0sin0 - \frac{2}{5} e^0cos0) 
+= \\ e^\pi - \frac{2}{5} e^\pi - 1 + \frac{2}{5} = 
+\frac{3}{5}e^\pi - \frac{3}{5} = \frac{3}{5}(e^\pi - 1) \approx 13.2844
