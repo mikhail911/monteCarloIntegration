@@ -10,12 +10,12 @@ unsigned long t_start, t_end;
 
 void setup() {
   Serial.begin(9600);
-  randomSeed(analogRead(0));
+  randomSeed(analogRead(0)); // differ random() function
 }
 
 void loop() {
   if (do_your_job == true) {
-    for (N; N <= 3000; N = N + 200) {
+    for (N; N <= 10000; N = N * 10) {
       monte_carlo(xmin, xmax, ymin, N);
     }
     do_your_job = false;
@@ -24,8 +24,9 @@ void loop() {
 
 float integral_function(float x) {
   /*
-     1) func = sqrt(1 - pow(x, 2)) xmin = -1, xmax = 1, ymin = 0
-     2) func = exp(x) * pow(cos(x), 2) xmin = 0, xmax = PI, ymin = 0
+       1) func = sqrt(1 - pow(x, 2)); xmin = -1, xmax = 1, ymin = 0
+       2) func = exp(x) * pow(cos(x), 2); xmin = 0, xmax = PI, ymin = 0
+       3) func = sqrt((1 + x) / (1 - x)); xmin = 0, xmax = 0.5, ymin = 0
   */
   float func = sqrt(1 - pow(x, 2));
   return func;
@@ -59,7 +60,7 @@ void monte_carlo(float xmin, float xmax, float ymin, unsigned long N) {
     float x = xmin + (xmax - xmin) * ((float)random(0, 100) / 100);
     float y = ymin + (ymax - ymin) * ((float)random(0, 100) / 100);
 
-    if (y > 0 && y <= integral_function(x)) {
+    if (y > ymin && y <= integral_function(x)) {
       hit_points = hit_points + 1;
     }
   }
