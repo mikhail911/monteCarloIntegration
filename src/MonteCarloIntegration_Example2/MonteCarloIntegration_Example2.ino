@@ -14,7 +14,7 @@ void setup() {
 
 void loop() {
   if (do_your_job == true) {
-    for (N; N <= 3000; N = N + 200) {
+    for (N; N <= 10000; N = N * 10) {
       monte_carlo(xmin, xmax, ymin, N);
     }
     do_your_job = false;
@@ -25,6 +25,7 @@ float integral_function(float x) {
   /*
      1) func = sqrt(1 - pow(x, 2)); xmin = -1, xmax = 1, ymin = 0
      2) func = exp(x) * pow(cos(x), 2); xmin = 0, xmax = PI, ymin = 0
+     3) func = sqrt((1 + x) / (1 - x)); xmin = 0, xmax = 0.5, ymin = 0
   */
   float func = exp(x) * pow(cos(x), 2);
   return func;
